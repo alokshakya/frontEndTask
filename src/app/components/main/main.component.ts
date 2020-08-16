@@ -16,9 +16,20 @@ export class MainComponent implements OnInit {
   launchYear: number;
   launchSuccess: boolean;
   landSuccess: boolean;
+  selectedYear: number;
+  selectedLaunch: boolean;
+  selectedLanding: boolean;
+  conditions: boolean[] = [true, false];
+  programs: any[];
+  years: number[] = [
+    2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016,
+    2017, 2018, 2019, 2020
+  ];
+  params: any;
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
       console.log('params ', params);
+      this.params = {...params};
       // on change call api;
       this.getData(params);
     });
@@ -27,7 +38,27 @@ export class MainComponent implements OnInit {
   getData(params: any) {
     this.dataService.getRecords(params).subscribe(res => {
       console.log('res', res);
+      this.programs = res;
     });
+  }
+
+  yearFilter(year: number) {
+    this.selectedYear = year;
+    console.log('year filter clicked', year);
+    this.params.launch_year = year;
+    this.router.navigate(['launches'], { queryParams: this.params});
+  }
+
+  launchFilter(condition) {
+    this.selectedLaunch = condition;
+    this.params.launch_success = condition;
+    this.router.navigate(['launches'], { queryParams: this.params});
+  }
+
+  landingFilter(condition) {
+    this.selectedLanding = condition;
+    this.params.land_success = condition;
+    this.router.navigate(['launches'], { queryParams: this.params});
   }
 
 }

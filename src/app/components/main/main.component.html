@@ -1,1 +1,56 @@
-<p>main works!</p>
+<div class="header">Space X Launch Programs</div>
+
+<div class="container max-screen-size">
+
+  <div class="filters-area">
+    <div class="filters-content">
+      <div class="filters-main-title">Filters</div>
+      <div class="filter-title">
+        Launch Year
+        <div class="border-line"></div>
+      </div>
+      <div class="year-filters-area">
+        <div class="button-area" *ngFor="let year of years">
+          <button (click)="yearFilter(year)" [ngClass]="{'active': year === selectedYear }">
+            {{year}}
+          </button>
+        </div>
+      </div>
+
+      <div class="filter-title">
+        Successful Launch
+        <div class="border-line"></div>
+      </div>
+      <div class="year-filters-area">
+        <div class="button-area" *ngFor="let condition of conditions">
+          <button (click)="launchFilter(condition)" [ngClass]="{'active': condition === selectedLaunch }">
+            <span *ngIf="condition">True</span>
+            <span *ngIf="!condition">False</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="filter-title">
+        Successful Landing
+        <div class="border-line"></div>
+      </div>
+      <div class="year-filters-area">
+        <div class="button-area" *ngFor="let condition of conditions">
+          <button (click)="landingFilter(condition)" [ngClass]="{'active': condition === selectedLanding }">
+            <span *ngIf="condition">True</span>
+            <span *ngIf="!condition">False</span>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="content-area">
+    <div class="programs" *ngFor="let program of programs">
+      <app-mission [program]="program"></app-mission>
+    </div>
+  </div>
+</div>
+
+<div class="footer"><span>Developed by: </span>Alok Kumar</div>

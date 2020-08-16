@@ -1,0 +1,19 @@
+<div class="mission">
+    <div class="image-container">
+        <img class="img" src="{{program?.links?.mission_patch_small}}">
+    </div>
+    <div class="name-area">
+        {{program?.mission_name}} # 
+        {{program?.flight_number}}
+    </div>
+    <div class="basic-info">
+        <div class="heading" >Mission Ids:</div>
+        <ul style="margin-top: -1px;">
+            <li *ngFor="let id of program?.mission_id">{{id}}</li>
+        </ul>
+        <div class="heading">Launch Year: <span>{{program?.launch_year}}</span></div>
+        <div class="heading">Successful Launch: <span>{{program?.launch_success}}</span></div>
+        <div class="heading">Successful Landing: <span>False</span></div>
+    </div>
+    
+</div>
