@@ -26,6 +26,7 @@ export class MainComponent implements OnInit {
     2017, 2018, 2019, 2020
   ];
   params: any;
+  loading: boolean;
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
       console.log('params ', params);
@@ -36,22 +37,22 @@ export class MainComponent implements OnInit {
   }
 
   getData(params: any) {
+    this.loading = true;
     this.dataService.getRecords(params).subscribe(res => {
       console.log('res', res);
       this.programs = res;
+      this.loading = false;
     });
   }
 
   yearFilter(year: number) {
     if (this.selectedYear === year) {
-      console.log('same yera clicked');
       delete this.params.launch_year;
     }
     else {
       this.selectedYear = year;
       this.params.launch_year = year;
     }
-    console.log('year filter clicked', year);
     this.router.navigate(['launches'], { queryParams: this.params});
   }
 

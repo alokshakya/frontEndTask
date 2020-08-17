@@ -1,7 +1,9 @@
 <div class="header">Space X Launch Programs</div>
 
 <div class="container max-screen-size">
-
+  <div id="overlay" *ngIf="loading"> 
+    <div class="loader"></div>
+  </div>
   <div class="filters-area">
     <div class="filters-content">
       <div class="filters-main-title">Filters</div>
