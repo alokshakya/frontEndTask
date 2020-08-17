@@ -6,22 +6,37 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Server Side Rendering Enabled
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Used angular universal for Server Side Rendering. Heroku Deployed application is server side rendered.
 
-## Build
+## Heroku deployed
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+[SpaceXPrograms](https://spacexprog.herokuapp.com/ "SpaceX Programs")
 
-## Running unit tests
+## Functionalities
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+User can filter result based on launch year by clicking on year button also user can clear selected filter by clicking on the same year to get results without year filter.
+Similarly user can filter on launch successful and landing successful. And if user wants to clear particular filter, then he/she has to just click again on the same button to clear filter.
 
-## Running end-to-end tests
+## Screens
+Mobile View
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+![Mobile View](https://github.com/alokshakya/frontEndTask/blob/master/rawImages/MobileView.png?raw=true)
 
-## Further help
+700px View
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![Small Screen 700px](https://github.com/alokshakya/frontEndTask/blob/master/rawImages/700px.png?raw=true)
+
+
+Tablet View
+
+![Tablet View](https://github.com/alokshakya/frontEndTask/blob/master/rawImages/TabletView.png?raw=true)
+
+Desktop View
+
+![Desktop View](https://github.com/alokshakya/frontEndTask/blob/master/rawImages/Desktop.png?raw=true)
+
+Large Screen Greater than 1440px
+
+![Large Screen View](https://github.com/alokshakya/frontEndTask/blob/master/rawImages/largeScreen.png?raw=true)
