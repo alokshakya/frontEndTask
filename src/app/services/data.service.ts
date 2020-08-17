@@ -21,8 +21,8 @@ export class DataService {
       query = query.substring(1, query.length);
       console.log('query for call ', query);
       console.log('url called ', `${this.baseUrl}?${query}`);
-      // return this.http.get(`${this.baseUrl}?${query}`);
-      return this.http.get('assets/data/first.json');
+      return this.http.get(`${this.baseUrl}?${query}`);
+      // return this.http.get('assets/data/first.json');
     }
     else {
       const query = '&limit=100';

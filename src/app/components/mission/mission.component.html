@@ -12,8 +12,14 @@
             <li *ngFor="let id of program?.mission_id">{{id}}</li>
         </ul>
         <div class="heading">Launch Year: <span>{{program?.launch_year}}</span></div>
-        <div class="heading">Successful Launch: <span>{{program?.launch_success}}</span></div>
-        <div class="heading">Successful Landing: <span>False</span></div>
+        <div class="heading">Successful Launch: 
+            <span *ngIf="program?.launch_success">True</span>
+            <span *ngIf="!program?.launch_success">False</span>
+        </div>
+        <div class="heading">Successful Landing: 
+            <span *ngIf="(program?.rocket?.first_stage?.cores.length && program?.rocket?.first_stage?.cores[0]?.land_success)">True</span>
+            <span *ngIf="!(program?.rocket?.first_stage?.cores.length && program?.rocket?.first_stage?.cores[0]?.land_success)">False</span>
+        </div>
     </div>
     
 </div>

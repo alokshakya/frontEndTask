@@ -11,5 +11,5 @@ export class MissionComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
 }

@@ -43,21 +43,37 @@ export class MainComponent implements OnInit {
   }
 
   yearFilter(year: number) {
-    this.selectedYear = year;
+    if (this.selectedYear === year) {
+      console.log('same yera clicked');
+      delete this.params.launch_year;
+    }
+    else {
+      this.selectedYear = year;
+      this.params.launch_year = year;
+    }
     console.log('year filter clicked', year);
-    this.params.launch_year = year;
     this.router.navigate(['launches'], { queryParams: this.params});
   }
 
   launchFilter(condition) {
-    this.selectedLaunch = condition;
-    this.params.launch_success = condition;
+    if (this.selectedLaunch === condition) {
+      delete this.params.launch_success;
+    }
+    else {
+      this.selectedLaunch = condition;
+      this.params.launch_success = condition;
+    }
     this.router.navigate(['launches'], { queryParams: this.params});
   }
 
   landingFilter(condition) {
-    this.selectedLanding = condition;
-    this.params.land_success = condition;
+    if (this.selectedLanding === condition) {
+      delete this.params.land_success;
+    }
+    else {
+      this.selectedLanding = condition;
+      this.params.land_success = condition;
+    }
     this.router.navigate(['launches'], { queryParams: this.params});
   }
 
