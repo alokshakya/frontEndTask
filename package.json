@@ -12,7 +12,7 @@
     "serve:ssr": "node dist/frontendUI/server/main.js",
     "build:ssr": "ng build --prod && ng run frontendUI:server:production",
     "prerender": "ng run frontendUI:prerender",
-    "start:heroku":"node dist/server",
+    "start:heroku":"node dist/frontendUI/server",
     "postinstall":"npm run build:ssr"
   },
   "private": true,
