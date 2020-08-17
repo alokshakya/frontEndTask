@@ -32,6 +32,19 @@ export class MainComponent implements OnInit {
       console.log('params ', params);
       this.params = {...params};
       // on change call api;
+      // set default filters from params if any
+      if (this.params.hasOwnProperty('launch_year')) {
+        this.selectedYear = parseInt(this.params.launch_year);
+        console.log('selected year ', this.selectedYear);
+      }
+      if (this.params.hasOwnProperty('launch_success')) {
+        const condition = (this.params.launch_success === "true");
+        this.selectedLaunch = condition;
+      }
+      if (this.params.hasOwnProperty('land_success')) {
+        const condition = (this.params.land_success === "true");
+        this.selectedLanding = condition;
+      }
       this.getData(params);
     });
   }
@@ -48,6 +61,7 @@ export class MainComponent implements OnInit {
   yearFilter(year: number) {
     if (this.selectedYear === year) {
       delete this.params.launch_year;
+      this.selectedYear = null;
     }
     else {
       this.selectedYear = year;
@@ -59,6 +73,7 @@ export class MainComponent implements OnInit {
   launchFilter(condition) {
     if (this.selectedLaunch === condition) {
       delete this.params.launch_success;
+      this.selectedLaunch = null;
     }
     else {
       this.selectedLaunch = condition;
@@ -70,6 +85,7 @@ export class MainComponent implements OnInit {
   landingFilter(condition) {
     if (this.selectedLanding === condition) {
       delete this.params.land_success;
+      this.selectedLanding = null;
     }
     else {
       this.selectedLanding = condition;
