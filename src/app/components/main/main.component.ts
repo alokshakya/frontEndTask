@@ -27,6 +27,7 @@ export class MainComponent implements OnInit {
   ];
   params: any;
   loading: boolean;
+  isError: boolean;
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
       console.log('params ', params);
@@ -51,10 +52,15 @@ export class MainComponent implements OnInit {
 
   getData(params: any) {
     this.loading = true;
+    this.isError = false;
     this.dataService.getRecords(params).subscribe(res => {
       console.log('res', res);
       this.programs = res;
       this.loading = false;
+    },
+    (err) => {
+      this.loading = false;
+      this.isError = true;
     });
   }
 

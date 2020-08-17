@@ -49,6 +49,8 @@
   </div>
 
   <div class="content-area">
+    <div class="no-data" *ngIf="programs?.length === 0">No Program Found</div>
+    <div *ngIf="isError" class="no-data api-error">API Failed</div>
     <div class="programs" *ngFor="let program of programs">
       <app-mission [program]="program"></app-mission>
     </div>

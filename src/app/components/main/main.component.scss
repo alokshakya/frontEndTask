@@ -109,7 +109,17 @@
         display: grid;
         grid-gap: 1.7em;
         margin: 2em;
-    
+        .no-data {
+            left: 0;
+            right: 0;
+            margin: 30% auto auto auto;
+            width: 100px;
+            position: absolute;
+            z-index: 3;
+        }
+        .api-error {
+            color: rgb(221, 94, 94);
+        }
         .programs {
             background-color: #ffff;
             // max-width: 350px;
