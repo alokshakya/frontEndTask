@@ -13,7 +13,7 @@ import { MissionComponent } from './components/mission/mission.component';
     MissionComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule
   ],
